@@ -2,13 +2,13 @@ import React from 'react'
 import ReactStars from "react-rating-stars-component";
 
 
-function NameSearch() {
+function NameSearch({filterText,filterRate}) {
 	return (
-		<div>
-			<input/>
+		<div className='fil'>
+			<input onChange={(e)=>filterText(e.target.value)}/>
 			<ReactStars
     count={5}
-    // onChange={ratingChanged}
+    onChange={(newRating)=>filterRate(newRating)}
     size={24}
     activeColor="#ffd700"
   />

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Modal, Button} from 'react-bootstrap'
-function MovieAdd(add) {
+function MovieAdd({add}) {
     const [show, setShow] = useState(false);
   const [newMovie, setnewMovie] = useState([])
     const handleClose = () => setShow(false);

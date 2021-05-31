@@ -1,16 +1,25 @@
-import React from 'react'
-import MovieCard from './MovieCard'
+import React,{useState} from 'react'
 import NameSearch from './NameSearch'
+import MovieCard from './MovieCard'
+
 
 function MovieList({films}) {
-	const [state, setstate] = useState(initialState)
-	const [state, setstate] = useState(initialState)
+	const [text, setText] = useState('')
+	const [rate, setRate] = useState('')
+	
+	const filterText=(text)=>{
+setText(text)
+	}
+	const filterRate=(rate)=>{
+		setRate(rate)
+			}
+	
 	return (
-		<div>
-			<NameSearch/>
+		<div >
+			<NameSearch filterText={filterText} filterRate={filterRate}/>
 
 				<div className='container'>
-			{films.map(el =><MovieCard film={el}/>)}
+			{films.filter(el=>el.title.toLowerCase().includes(text.toLowerCase())&& el.rate>=rate).map(el =><MovieCard film={el}/>)}
 		</div>
 
 		</div>
